@@ -30,7 +30,7 @@ public class AnalyticsController {
                 candidateRepository.countByStatus("Rejected"));
 
         data.put("pending",
-                candidateRepository.countByStatus("Applied"));
+                candidateRepository.countByStatus("Pending"));
 
         return data;
     }
