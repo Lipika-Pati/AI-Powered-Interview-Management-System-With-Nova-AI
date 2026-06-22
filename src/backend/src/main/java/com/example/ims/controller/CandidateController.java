@@ -2,6 +2,7 @@ package com.example.ims.controller;
 
 import com.example.ims.model.Candidate;
 import com.example.ims.repository.CandidateRepository;
+import com.example.ims.service.EmailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,9 @@ public class CandidateController {
     @Autowired
     private CandidateRepository candidateRepository;
 
+    @Autowired
+private EmailService emailService;
+
     // GET ALL CANDIDATES
 
     @GetMapping
@@ -30,14 +34,20 @@ public class CandidateController {
     // ADD CANDIDATE
 
     @PostMapping("/add")
+public Candidate addCandidate(@RequestBody Candidate candidate) {
 
-    public Candidate addCandidate(
-            @RequestBody Candidate candidate
-    ) {
+    Candidate savedCandidate =
+            candidateRepository.save(candidate);
 
-        return candidateRepository.save(candidate);
+    emailService.sendOfferEmail(
+            savedCandidate.getEmail(),
+            savedCandidate.getName(),
+            "Not Assigned Yet",
+            "Will be informed soon"
+    );
 
-    }
+    return savedCandidate;
+}
 
     // DELETE CANDIDATE
 
