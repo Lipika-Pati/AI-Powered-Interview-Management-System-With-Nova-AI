@@ -55,58 +55,46 @@ function Login() {
   };
 
   const handleLogin = async () => {
-
   if (!validate()) return;
 
   try {
-
     const res = await fetch(
-      "https://ai-powered-interview-management-system-rm2x.onrender.com",
+      "https://ai-powered-interview-management-system-rm2x.onrender.com/api/auth/login",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
+        body: JSON.stringify({ username, password }),
       }
     );
 
-    if (!res.ok) {
-      throw new Error("Server Error");
-    }
+    const text = await res.text();
+    console.log("Response:", text);
 
-    const data = await res.json();
+    const data = text ? JSON.parse(text) : {};
 
-    console.log(data);
+    if (res.ok) {
+      toast.success("Login Successful ✅");
+      console.log(data);
 
-    if (data.role === "ADMIN" || data.role === "HR") {
+      // Agar token ya role aata hai to save karo
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+      }
 
-      localStorage.setItem("role", data.role);
-
-      toast.success(`Welcome ${data.role} ✅`);
-
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 1500);
-
+      navigate("/dashboard");
     } else {
-
-      toast.error(data.message || "Wrong username or password ❌");
-
+      toast.error(data.message || "Invalid Username or Password");
     }
-
-  } catch (error) {
-
-    console.log(error);
-    toast.error("Server error ❌");
-
+  } catch (err) {
+    console.error(err);
+    toast.error("Server Error ❌");
   }
 };
-        
     
+      
+  
 
   return (
 
