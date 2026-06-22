@@ -56,53 +56,57 @@ function Login() {
 
   const handleLogin = async () => {
 
-    if(!validate()) return;
+  if (!validate()) return;
 
-    try {
+  try {
 
-      const res = await fetch("http://localhost:8081/api/auth/login", {
-
+    const res = await fetch(
+      "https://ai-powered-interview-management-system-tf73.onrender.com/api/auth/login",
+      {
         method: "POST",
-
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-
         body: JSON.stringify({
           username,
-          password
-        })
-
-      });
-
-      const data = await res.json();
-
-      if(data.role === "ADMIN" || data.role === "HR") {
-
-        // ✅ ROLE SAVE
-        localStorage.setItem("role", data.role);
-
-        toast.success(`Welcome ${data.role} ✅`);
-
-        setTimeout(() => {
-
-          window.location.href = "/dashboard";
-
-        }, 1500);
-
-      } else {
-
-        toast.error("Wrong username or password ❌");
-
+          password,
+        }),
       }
+    );
 
-    } catch (error) {
+    if (!res.ok) {
+      throw new Error("Server Error");
+    }
 
-      toast.error("Server error ❌");
+    const data = await res.json();
+
+    console.log(data);
+
+    if (data.role === "ADMIN" || data.role === "HR") {
+
+      localStorage.setItem("role", data.role);
+
+      toast.success(`Welcome ${data.role} ✅`);
+
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 1500);
+
+    } else {
+
+      toast.error(data.message || "Wrong username or password ❌");
 
     }
 
-  };
+  } catch (error) {
+
+    console.log(error);
+    toast.error("Server error ❌");
+
+  }
+};
+        
+    
 
   return (
 
