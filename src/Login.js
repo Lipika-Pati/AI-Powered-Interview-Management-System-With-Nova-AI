@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 function Login() {
 
   // 🤖 LOGIN PAGE OPEN HOTE HI ROLE REMOVE
-  localStorage.removeItem("role");
+  //localStorage.removeItem("role");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -75,18 +75,18 @@ function Login() {
     const data = text ? JSON.parse(text) : {};
 
     if (res.ok) {
-      toast.success("Login Successful ✅");
-      console.log(data);
+  toast.success("Login Successful ✅");
+  console.log(data);
 
-      // Agar token ya role aata hai to save karo
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-      }
+  if (data.token) {
+    localStorage.setItem("token", data.token);
+  }
 
-      navigate("/dashboard");
-    } else {
-      toast.error(data.message || "Invalid Username or Password");
-    }
+  localStorage.setItem("role", "ADMIN");
+  navigate("/dashboard");
+} else {
+  toast.error(data.message || "Invalid Username or Password");
+}
   } catch (err) {
     console.error(err);
     toast.error("Server Error ❌");
