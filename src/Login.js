@@ -83,7 +83,7 @@ function Login() {
   }
 
   localStorage.setItem("role", "ADMIN");
-  window.location.href = "/dashboard";
+  navigate("/dashboard");
 } else {
   toast.error(data.message || "Invalid Username or Password");
 }
