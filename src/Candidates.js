@@ -203,7 +203,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/delete/${id}",
+        'https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/delete/${id}',
 
         {
 
@@ -212,6 +212,14 @@ function Candidates() {
         }
 
       );
+
+      if(response.ok){
+
+        toast.success("Deleted Successfully 🗑️");
+
+        fetchCandidates();
+
+      };
 
       if(response.ok){
 
