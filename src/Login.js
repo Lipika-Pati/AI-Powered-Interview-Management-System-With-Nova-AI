@@ -61,7 +61,7 @@ function Login() {
   try {
 
     const res = await fetch(
-      "https://ai-powered-interview-management-system-tf73.onrender.com/api/auth/login",
+      "https://ai-powered-interview-management-system-rm2x.onrender.com",
       {
         method: "POST",
         headers: {
