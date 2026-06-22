@@ -12,7 +12,7 @@ function ForgotPassword() {
 
     try {
       const response = await fetch(
-        "http://localhost:8081/api/auth/forgot-password",
+        "https://ai-powered-interview-management-system-rm2x.onrender.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

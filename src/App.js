@@ -57,7 +57,7 @@ function App() {
 
         <Route
           path="/dashboard"
-          element={role ? <HomeDashboard /> : <Login />}
+          element={<HomeDashboard />}
         />
 
         {/* CANDIDATES */}
