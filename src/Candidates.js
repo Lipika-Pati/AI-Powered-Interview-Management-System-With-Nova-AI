@@ -33,7 +33,8 @@ function Candidates() {
     try {
 
       const response = await fetch(
-        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates"
+        `https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates`,
+      
       );
 
       const data = await response.json();
@@ -81,8 +82,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/add",
-
+`https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/add`,
         {
 
           method:"POST",
@@ -159,8 +159,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/update/${editId}",
-
+        `https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/update/${editId}`,
         {
 
           method:"PUT",
@@ -203,7 +202,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        'https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/delete/${id}',
+        `https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/delete/${id}`,
 
         {
 
