@@ -17,7 +17,7 @@ function Analytics() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/analytics"
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/analytics"
       );
 
       const data = await response.json();

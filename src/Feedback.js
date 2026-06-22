@@ -55,8 +55,7 @@ function Feedback() {
 
       const response = await fetch(
 
-        "http://localhost:8081/api/feedback/add",
-
+      "https://ai-powered-interview-management-system-tf73.onrender.com/api/feedback/add",
         {
 
           method: "POST",

@@ -70,20 +70,18 @@ function Chatbot() {
 
         try{
 
-            const response = await fetch("http://127.0.0.1:5000/chat", {
-
-                method:"POST",
-
-                headers:{
-                    "Content-Type":"application/json"
-                },
-
-                body:JSON.stringify({
-                    message:message
-                })
-
-            });
-
+            const response = await fetch(
+  "https://nova-ai-1-vrrr.onrender.com/chat",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: message
+    })
+  }
+);
             const data = await response.json();
 
             const botMsg = {

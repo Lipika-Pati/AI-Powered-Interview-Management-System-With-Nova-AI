@@ -75,7 +75,7 @@ function Offer() {
   const deleteOffer = async (id) => {
     try {
       await fetch(
-        `http://localhost:8081/api/offers/delete/${id}`,
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/offers/delete/${id}",
         { method: "DELETE" }
       );
 

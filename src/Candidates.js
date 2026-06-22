@@ -33,7 +33,7 @@ function Candidates() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/candidates"
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates"
       );
 
       const data = await response.json();
@@ -81,7 +81,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        "http://localhost:8081/api/candidates/add",
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/add",
 
         {
 
@@ -159,7 +159,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        `http://localhost:8081/api/candidates/update/${editId}`,
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/update/${editId}",
 
         {
 
@@ -203,7 +203,7 @@ function Candidates() {
 
       const response = await fetch(
 
-        `http://localhost:8081/api/candidates/delete/${id}`,
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/candidates/delete/${id}",
 
         {
 

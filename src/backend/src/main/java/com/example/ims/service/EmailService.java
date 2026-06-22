@@ -119,7 +119,7 @@ public class EmailService {
 
         message.setText(
                 "Click here to reset password:\n" +
-                        "http://localhost:3000/reset-password"
+                        "https://ai-powered-interview-management-system-rm2x.onrender.com/reset-password"
         );
 
         mailSender.send(message);
