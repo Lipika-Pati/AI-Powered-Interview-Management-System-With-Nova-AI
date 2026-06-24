@@ -169,7 +169,9 @@ const cardStyle = {
   background:"rgba(255,255,255,0.15)",
   padding:"30px",
   borderRadius:"20px",
-  width:"280px",
+ width:"90%",
+width:"90%",
+maxWidth:"280px",
   textAlign:"center",
   backdropFilter:"blur(10px)",
   boxShadow:"0 0 20px rgba(0,0,0,0.3)"

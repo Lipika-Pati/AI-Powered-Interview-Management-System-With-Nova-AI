@@ -82,7 +82,11 @@ function Login() {
     localStorage.setItem("token", data.token);
   }
 
-  localStorage.setItem("role", "ADMIN");
+  console.log(data);
+
+if (data.role) {
+  localStorage.setItem("role", data.role);
+}
   navigate("/dashboard");
 } else {
   toast.error(data.message || "Invalid Username or Password");
@@ -112,7 +116,8 @@ function Login() {
         elevation={8}
         sx={{
           padding: 4,
-          width: 380,
+          width: "90%",
+          maxWidth: "380px",
           textAlign: "center",
           borderRadius: "15px"
         }}

@@ -104,7 +104,12 @@ function App() {
       {/* 🤖 CHATBOT */}
 
 
-          <Chatbot />
+          {
+  role &&
+  window.location.pathname !== "/" && (
+    <Chatbot />
+  )
+}
     
 
     </BrowserRouter>

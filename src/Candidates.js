@@ -310,11 +310,12 @@ function Candidates() {
           value={search}
           onChange={(e)=>setSearch(e.target.value)}
           style={{
-            width:"400px",
-            padding:"12px",
-            borderRadius:"10px",
-            border:"none"
-          }}
+  width:"100%",
+  maxWidth:"400px",
+  padding:"12px",
+  borderRadius:"10px",
+  border:"none"
+}}
         />
 
       </div>
@@ -327,7 +328,8 @@ function Candidates() {
           color: "black",
           padding: "30px",
           borderRadius: "20px",
-          width: "450px",
+         width:"90%",
+maxWidth:"450px",
           margin: "40px auto",
           boxShadow:"0 0 20px rgba(0,0,0,0.3)"
         }}
