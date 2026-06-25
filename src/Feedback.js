@@ -18,7 +18,8 @@ function Feedback() {
     try {
 
       const response = await fetch(
-        "http://localhost:8081/api/feedback"
+      
+        "https://ai-powered-interview-management-system-tf73.onrender.com/api/feedback",
       );
 
       const data = await response.json();
@@ -133,7 +134,8 @@ function Feedback() {
         style={{
           background:"white",
           color:"black",
-          width:"450px",
+          width:"90%",
+          maxWidth:"450px",
           margin:"40px auto",
           padding:"30px",
           borderRadius:"20px"

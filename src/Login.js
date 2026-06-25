@@ -83,7 +83,6 @@ function Login() {
   }
 
   console.log(data);
-
 if (data.role) {
   localStorage.setItem("role", data.role);
 }
