@@ -70,9 +70,10 @@ function Login() {
     );
 
     const text = await res.text();
-    console.log("Response:", text);
+alert(text);
+console.log(text);
 
-    const data = text ? JSON.parse(text) : {};
+const data = text ? JSON.parse(text) : {};
 
     if (res.ok) {
   toast.success("Login Successful ✅");
